@@ -1,0 +1,16 @@
+Here are all the users:
+<ul>
+    <% users.forEach((user) => { %>
+        <li>
+        	Name: <%= user.name %> <br>
+            ID: <%= user.id %> <br>
+            Emergency Contact: <%= user.emergencyContactID %> <br>
+            Medical Ability: <%= user.medicalAbility %> <br>
+            Crime Ability: <%= user.crimeAbility %> <br>
+            Password: <%= user.password %> <br>
+        </li>
+    <% }); %>
+</ul>
+<a href = "/public">Back to Console</a>
+</body>
+</html>

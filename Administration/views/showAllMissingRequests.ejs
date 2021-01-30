@@ -1,0 +1,46 @@
+Here are all the missing person requests:
+<ul>
+    <% missingRequests.forEach((missingPerson) => {
+        if (missingPerson.isRequest && missingPerson.hasImage) {%>
+            <li>
+                <%= missingPerson.name %>: <br>
+                Last Seen at <%= missingPerson.lastSeenStreet + ", "
+                + missingPerson.lastSeenCity + ", "
+                + missingPerson.lastSeenState %> <br>
+                Description: <%= missingPerson.description %> <br>
+                Picture: <img src = <%= missingPerson.image %> width = "100mb"
+                height = "100mb">
+            </li>
+            <form action='/approveMissingRequest' method='post'>
+                Message: <input name='message'><br>
+                <input type='hidden' name='reportedName'
+                value=<%=missingPerson.name%>>
+                <input type='hidden' name='reportedPhone'
+                value=<%=missingPerson.contactNumber%>>
+                <input type="radio" name="isAccepted" value="true">Accept
+                <input type="radio" name="isAccepted" value="false">Decline<br>
+                <input type=submit value="Submit">
+            </form>
+        <% } else if (missingPerson.isRequest && !missingPerson.hasImage) {%>
+            <li>
+                <%= missingPerson.name %>: <br>
+                Last Seen at <%= missingPerson.lastSeenStreet + ", "
+                + missingPerson.lastSeenCity + ", "
+                + missingPerson.lastSeenState %> <br>
+                Description: <%= missingPerson.description %> <br>
+            </li>
+            <form action='/approveMissingRequest' method='post'>
+                Message: <input name='message'><br>
+                <input type='hidden' name='reportedName'
+                value=<%=missingPerson.name%>>
+                <input type='hidden' name='reportedPhone'
+                value=<%=missingPerson.contactNumber%>>
+                <input type="radio" name="isAccepted" value="true">Accept
+                <input type="radio" name="isAccepted" value="false">Decline<br>
+                <input type=submit value="Submit">
+            </form>
+        <% } %>
+
+    <% }); %>
+</ul>
+<a href = "/public">Back to Console</a>

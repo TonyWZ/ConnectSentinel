@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="sendMedicalAlarm"
+        android:enabled="true"
+        android:shortcutShortLabel="@string/medical_alarm_shortcut_short_label"
+        android:shortcutLongLabel="@string/medical_alarm_shortcut_long_label"
+        android:shortcutDisabledMessage="@string/medical_alarm_shortcut_disabled_msg">
+        <intent
+            android:action="group2.connectsentinel.actions.SendMedicalAlarm"
+            android:targetPackage="group2.connectsentinel"
+            android:targetClass="group2.connectsentinel.activities.MainActivity" />
+        <categories android:name="android.intent.category.LAUNCHER" />
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="sendCriminalAlarm"
+        android:enabled="true"
+        android:shortcutShortLabel="@string/criminal_alarm_shortcut_short_label"
+        android:shortcutLongLabel="@string/criminal_alarm_shortcut_long_label"
+        android:shortcutDisabledMessage="@string/criminal_alarm_shortcut_disabled_msg">
+        <intent
+            android:action="group2.connectsentinel.actions.SendCriminalAlarm"
+            android:targetPackage="group2.connectsentinel"
+            android:targetClass="group2.connectsentinel.activities.MainActivity" />
+        <categories android:name="android.intent.category.LAUNCHER" />
+    </shortcut>
+</shortcuts>

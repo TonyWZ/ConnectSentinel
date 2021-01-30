@@ -1,0 +1,15 @@
+<% if (mes) { %>
+  <h2 color="green"> <%= mes %> </h2>
+ <% }; %>
+
+This is the page for you to ban users from the system. <br>
+Please be <b> very careful </b> when using this page. <br>
+Don't submit the form unless you are <b> super sure</b> about what you are doing. <br>
+If you submit the form, the user will be completely <b> deleted </b> from ConnectSentinel. <br>
+<form action='/processBanUser' method='post' onsubmit="return confirm('Do you really want to submit the form?');">
+    Message: <input name='message'><br>
+    The ID of User to ban: <input name="userId"><br>
+    <input type=submit value="Submit">
+</form>
+
+<a href = "/public">Back to Console</a>

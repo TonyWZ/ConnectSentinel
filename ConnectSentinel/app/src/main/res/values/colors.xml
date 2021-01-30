@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    //Use this color scheme: https://www.color-hex.com/color/003865
+    <color name="colorPrimary">#003865</color>
+    <color name="colorPrimaryDark">#00213c</color>
+    <color name="colorAccent">#8bc6c4</color>
+    <color name="colorTitle">#19466a</color>
+    <color name="button">#6687a2</color>
+    <color name="emergent">#a10000</color>
+</resources>

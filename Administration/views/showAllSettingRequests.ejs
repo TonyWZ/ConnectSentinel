@@ -1,0 +1,27 @@
+Here are all the user profile setting requests:
+<ul>
+    <% settings.forEach((user) => { %>
+        <li>
+            Name: <%= user.name %> <br>
+            Emergency Contact: <%= user.emergencyContactID %> <br>
+            Medical Ability: <%= user.medicalAbility %> <br>
+            Crime Ability: <%= user.crimeAbility %> <br>
+            <form action='/processSetting' method='post'>
+                <input type='hidden' name='settingId'
+                value=<%=user.id%>>
+                <input type='hidden' name='settingName'
+                value=<%=user.name%>>
+                <input type='hidden' name='settingEmergencyContactID'
+                value=<%=user.emergencyContactID%>>
+                <input type='hidden' name='settingMedicalAbility'
+                value=<%=user.medicalAbility%>>
+                <input type='hidden' name='settingCrimeAbility'
+                value=<%=user.crimeAbility%>>
+                <input type=submit value="Submit">
+            </form>
+        </li>
+    <% }); %>
+</ul>
+<a href = "/public">Back to Console</a>
+</body>
+</html>

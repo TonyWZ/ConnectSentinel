@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+    <script src="/datamaps/datamaps.usa.min.js"></script>
+    <div id="container" style="position: relative; width: 500px; height: 300px;"></div>
+    <script>
+        var stateMap = <%-JSON.stringify(stateMap)%>;
+        var data = {
+          "AZ": {
+              "missingPersonIncidents": stateMap['AZ']
+          },
+          "CO": {
+              "missingPersonIncidents": stateMap['CO']
+          },
+          "DE": {
+              "missingPersonIncidents": stateMap['DE']
+          },
+          "FL": {
+              "missingPersonIncidents": stateMap['FL']
+          },
+          "GA": {
+              "missingPersonIncidents": stateMap['GA']
+          },
+          "HI": {
+              "missingPersonIncidents": stateMap['HI']
+          },
+          "ID": {
+              "missingPersonIncidents": stateMap['ID']
+          },
+          "IL": {
+              "missingPersonIncidents": stateMap['IL']
+          },
+          "IN": {
+              "missingPersonIncidents": stateMap['IN']
+          },
+          "IA": {
+              "missingPersonIncidents": stateMap['IA']
+          },
+          "KS": {
+              "missingPersonIncidents": stateMap['KS']
+          },
+          "KY": {
+              "missingPersonIncidents": stateMap['KY']
+          },
+          "LA": {
+              "missingPersonIncidents": stateMap['LA']
+          },
+          "MD": {
+              "missingPersonIncidents": stateMap['MD']
+          },
+          "ME": {
+              "missingPersonIncidents": stateMap['ME']
+          },
+          "MA": {
+              "missingPersonIncidents": stateMap['MA']
+          },
+          "MN": {
+              "missingPersonIncidents": stateMap['MN']
+          },
+          "MI": {
+              "missingPersonIncidents": stateMap['MI']
+          },
+          "MS": {
+              "missingPersonIncidents": stateMap['MS']
+          },
+          "MO": {
+              "missingPersonIncidents": stateMap['MO']
+          },
+          "MT": {
+              "missingPersonIncidents": stateMap['MT']
+          },
+          "NC": {
+              "missingPersonIncidents": stateMap['NC']
+          },
+          "NE": {
+              "missingPersonIncidents": stateMap['NE']
+          },
+          "NV": {
+              "missingPersonIncidents": stateMap['NV']
+          },
+          "NH": {
+              "missingPersonIncidents": stateMap['NH']
+          },
+          "NJ": {
+              "missingPersonIncidents": stateMap['NJ']
+          },
+          "NY": {
+              "missingPersonIncidents": stateMap['NY']
+          },
+          "ND": {
+              "missingPersonIncidents": stateMap['ND']
+          },
+          "NM": {
+              "missingPersonIncidents": stateMap['NM']
+          },
+          "OH": {
+              "missingPersonIncidents": stateMap['OH']
+          },
+          "OK": {
+              "missingPersonIncidents": stateMap['OK']
+          },
+          "OR": {
+              "missingPersonIncidents": stateMap['OR']
+          },
+          "PA": {
+              "missingPersonIncidents": stateMap['PA']
+          },
+          "RI": {
+              "missingPersonIncidents": stateMap['RI']
+          },
+          "SC": {
+              "missingPersonIncidents": stateMap['SC']
+          },
+          "SD": {
+              "missingPersonIncidents": stateMap['SD']
+          },
+          "TN": {
+              "missingPersonIncidents": stateMap['TN']
+          },
+          "TX": {
+              "missingPersonIncidents": stateMap['TX']
+          },
+          "UT": {
+              "missingPersonIncidents": stateMap['UT']
+          },
+          "WI": {
+              "missingPersonIncidents": stateMap['WI']
+          },
+          "VA": {
+              "missingPersonIncidents": stateMap['VA']
+          },
+          "VT": {
+              "missingPersonIncidents": stateMap['VT']
+          },
+          "WA": {
+              "missingPersonIncidents": stateMap['WA']
+          },
+          "WV": {
+              "missingPersonIncidents": stateMap['WV']
+          },
+          "WY": {
+              "missingPersonIncidents": stateMap['WY']
+          },
+          "CA": {
+              "missingPersonIncidents": stateMap['CA']
+          },
+          "CT": {
+              "missingPersonIncidents": stateMap['CT']
+          },
+          "AK": {
+              "missingPersonIncidents": stateMap['AK']
+          },
+          "AR": {
+              "missingPersonIncidents": stateMap['AR']
+          },
+          "AL": {
+              "missingPersonIncidents": stateMap['AL']
+          }
+      };
+        for (var key in data) {
+            if (data[key].missingPersonIncidents >= 2) {
+                data[key].fillKey = 'Dangerous';
+            } else if (data[key].missingPersonIncidents < 2 &&
+            data[key].missingPersonIncidents > 0){
+                data[key].fillKey = 'Little Dangerous';
+            } else if (data[key].missingPersonIncidents == 0) {
+                data[key].fillKey = 'Pretty Safe';
+            }
+        };
+        var map = new Datamap({
+            scope: 'usa',
+          element: document.getElementById('container'),
+          geographyConfig: {
+              highlightBorderColor: '#bada55',
+              popupTemplate: function(geography, data) {
+                  return '<div class="hoverinfo">' + geography.properties.name +
+                  '\n' + 'Missing Person Incidents:' +
+                  data.missingPersonIncidents + '</div>';
+              },
+              highlightBorderWidth: 3
+          },
+          fills: {
+          'Dangerous': '#ff1414',
+          'Little Dangerous': '#ff7676',
+          'Pretty Safe': '#d8d8d8' },
+
+          data: data
+        });
+        map.labels();
+    </script>
+
+    Here are all the missing people:
+    <ul>
+        <% missingPeople.forEach((missingPerson) => {
+            if (!missingPerson.isRequest && missingPerson.hasImage) {%>
+            <li>
+                <%= missingPerson.name %>: <br>
+                Last Seen at <%= missingPerson.lastSeenStreet + ", "
+                + missingPerson.lastSeenCity + ", "
+                + missingPerson.lastSeenState %> <br>
+                Description: <%= missingPerson.description %> <br>
+                Picture: <img src = <%= missingPerson.image %> width = "100mb"
+                height = "100mb">
+            </li>
+        <% } else if (!missingPerson.isRequest && !missingPerson.hasImage) {%>
+            <li>
+                <%= missingPerson.name %>: <br>
+                Last Seen at <%= missingPerson.lastSeenStreet + ", "
+                + missingPerson.lastSeenCity + ", "
+                + missingPerson.lastSeenState %> <br>
+                Description: <%= missingPerson.description %> <br>
+            </li>
+        <% } }); %>
+    </ul>
+
+    <a href = "/public">Back to Console</a>
+</body>

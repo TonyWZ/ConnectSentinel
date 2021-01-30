@@ -1,0 +1,24 @@
+<html>
+<body>
+Here are all the abuse reports:
+<ul>
+    <% var count = 0 %>
+    <% var reports = abuseReports; %>
+    <% reports.forEach((report) => {
+        if (report) {%>
+        <li>
+            Sent by: <b> <%= report.originUserID %> </b> <br>
+            Target to: <b> <%= report.targetUserID %> </b> <br>
+            Description: <b> <%= report.description %> </b> <br>
+            <% var dateTemp = report.date %>
+            <% var year = dateTemp.getFullYear(); %>
+            <% var month = dateTemp.getMonth()+1; %>
+            <% var day = dateTemp.getDate(); %>
+            Date sent: <b> <%= year %> . <%= month %> . <%= day %> </b><br>
+            Location: <b> <%= report.location%> </b> <br>
+        </li>
+    <% } }); %>
+</ul>
+<a href = "/public">Back to Console</a>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.CurrentTripActivity">
+
+    <TextView
+        android:id="@+id/currentTripTitle"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="96dp"
+        android:gravity="center"
+        android:text="My Current Trip"
+        android:textColor="@color/colorTitle"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/tripForm"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="78dp" />
+
+    <TextView
+        android:id="@+id/DestinationLabel"
+        android:layout_width="133dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="264dp"
+        android:layout_marginBottom="8dp"
+        android:text="Destination: "
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.245" />
+
+    <TextView
+        android:id="@+id/Destination"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:text=""
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.453" />
+
+    <TextView
+        android:id="@+id/EmergencyContactLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="180dp"
+        android:layout_marginBottom="8dp"
+        android:text="Emergency Contact: "
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.517" />
+
+    <TextView
+        android:id="@+id/EmergencyContact"
+        android:layout_width="match_parent"
+        android:layout_height="31dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="100dp"
+        android:gravity="center"
+        android:text=""
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.825" />
+
+    <CheckBox
+        android:id="@+id/arrivalCheckIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I have safely arrived at my destination."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.308"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.818" />
+
+
+</android.support.constraint.ConstraintLayout>

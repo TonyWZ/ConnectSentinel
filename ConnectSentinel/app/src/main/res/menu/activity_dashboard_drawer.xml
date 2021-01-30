@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_reportmissing"
+            android:icon="@drawable/ic_menu_face"
+            android:title="Report a Missing Person" />
+
+        <item
+            android:id="@+id/nav_reportabuse"
+            android:icon="@drawable/ic_menu_abuse"
+            android:title="Report an Abuse" />
+
+        <item
+            android:id="@+id/nav_createnew"
+            android:icon="@drawable/ic_menu_new"
+            android:title="Create a New Trip" />
+        <item
+            android:id="@+id/nav_mycurrent"
+            android:icon="@drawable/ic_menu_current"
+            android:title="My Current Trip" />
+
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_menu_settings"
+            android:title="Settings" />
+
+        <item
+            android:id="@+id/nav_display_missing"
+            android:icon="@drawable/ic_menu_missing"
+            android:title="Display Missing" />
+
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_menu_logout"
+            android:title="Log Out" />
+
+
+    </group>
+
+</menu>
